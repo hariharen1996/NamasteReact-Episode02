@@ -1,0 +1,103 @@
+Episode - 02 => Ignite our app
+
+Theory:
+
+1. What is NPM?
+
+NPM is an package manager and it is everything which is used to install all the dependencies in out react app. NPM does not have any name and used to manage the packages. It is an standard repo for all the packages. We can initialize an npm using npm init
+
+2. What is parcel/webpack? why do we need it?
+
+Parcel/webpacks are packages or dependencies which are used to bundle the code into production/ minize the code and will make app run faster. They are used to ignite our app.
+To get parcel into our app, we use
+
+=>npm install -D parcel
+
+Here, -D represents dev environment. If we dont mention -D, then it is for production environment. In package.json file, we will be seeing ^ or ~
+
+devDependencies : {
+"parcel": "^2.8.4"
+}
+
+Here, caret(^) represents version will be updated automatically and if we put tilda (~), it represents, installing the majot version automatically. (Should not use tilda, as it may break the application)
+
+3. what is .parcel-cache?
+
+   The .parcel-cache is an temporary folder, which can be regenerated. It is used to reduce the building time For Eg: If we delete the node-modules, it can be regenerated using npm install, beacuse all the dependencies are stored in package.json file. It holds all the cached files and stores information about the projects.
+
+4. what is npx?
+
+   npx is an tool which is normally used to execute an package, where as npm is used to install an package
+
+5. what is difference between dependencies and devDependencies?
+
+   Dependencies are used to work for production environment and devDependencies are used to work for the development/local environment
+   (eg):
+   Depedencies: npm install parcel
+   DevDependencies: npm install -D parcel
+
+6. What is tree-shaking?
+
+   The Tree-shaking is an part of parcel, which is used to remove the unused code and is used to reduce the size of the bundle and improve performance. Parcel also statically analyzes the imports and exports of each module, and removes everything that isn't used. This is called "tree shaking" or "dead code elimination".
+
+7. What is Hot Module Replacement?
+
+HMR known as hot module replacement, which is used to update the changed module without an full page reload
+
+8. List down favourite 5 superpowers of parcel and describe any 3 of them in own words?
+
+   1. Hot Reloading
+   2. Diagnostics
+   3. Minification
+   4. Tree shaking
+   5. Differential Bundling
+
+1. Hot Reloading - when we make any changes, the parcel will automatically update it in the browser, without any page reload
+
+1. Diagnostics - If we made any error in our code, the parcel will display the diagnostics in the terminal and console
+
+1. Minification - parcel provides minification, to mimize the code/bundles the code and it gets optimized automatically. To minize the code, run npm parcel build index.html
+
+1. what is .gitignore? what should we add and not add into it?
+
+It is an text file, which is used to ignore certain files or folders in the project, which wil not be comitted in production environment.
+(eg): node-modules can be regenerated if it is deleted and they are present in both local and server side environments, but they are different. So we can reproduce using npm install
+
+10. What is difference between package.json and package-lock.json?
+
+package.json - It is used to give the actual versions of the installed dependencies. It can be updated using caret or tilda, which we can change the versions to be installed.
+
+package-lock.json - It is used to give the exact versions which is installed on package.json
+
+11. why should i not modify package-lock.json?
+
+    The pckage-lock.json is handled directly by package.json and contains the information about the dependencies and their versions used in the project. Deleting it would cause dependencies issues in the production environment and is being handled automatically by NPM.
+
+12. what is node-modules? is it a good idea to push on git?
+
+    The node-modules contains all the code fetched from npm. It is like an database which contains actual data and fetch all the code form the dependencies. Its not an good idea to push node-modules in github as it contans large size and takes more memory
+
+13. what is .dist folder?
+
+    The dist folder contains three main files namesly, html,css and javasscript files. It contains the minimized version of the source code and contains the code from production web application.
+
+14. what is browserlist?
+
+    It is an tool, which tells about the browsers, which can be supported on web app like older browsers
+
+      "BrowserList" : [
+         "last 2 chrome version",
+         "last 2 firefox versions"
+        ]
+
+Practical Coding:
+
+1. Initialize npm into repo
+2. install react and reactDOM
+3. remove CDN links of react 
+4. install parcel 
+5. ignite your app with parcel 
+6. add scripts for start and build with parcel commands
+7. add .gitignore file 
+8. add browserslist
+9. build a production version of your code using parcel build
